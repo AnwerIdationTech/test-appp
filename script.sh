@@ -23,10 +23,14 @@ if [ "$backendChanged" == true ]; then
   export SERVICE_PATH="src/Backend"
   export SERVICE="soc-ui"
   export BUILD_OPTIONS="-f Dockerfile .."
+  cd $SERVICE_PATH
+              docker build -t $SERVICE $BUILD_OPTIONS 
 fi
 
 if [ "$frontendChanged" == true ]; then
   export SERVICE_PATH="src/Frontend"
   export SERVICE="socurely-ui"
   export BUILD_OPTIONS="-f Dockerfile ../"
+  cd $SERVICE_PATH
+              docker build -t $SERVICE $BUILD_OPTIONS 
 fi
